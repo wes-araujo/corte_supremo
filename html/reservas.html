@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio Corte Supremo</title>
+  <link rel="stylesheet" href="../src/css/reset.css" />
+  <link rel="stylesheet" href="../src/css/headefoter.css" />
+  <link rel="stylesheet" href="../src/css/reservas.css" />
+  <link rel="stylesheet" href="../src/css/cardapio.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../js/reservas2.js"></script>
+</head>
+
+<body>
+  <header class="cabecalho"> <a class="logo" href="index.html"><img src="../src/assets/imagens/Logo.png"
+        alt="Logo Corte Supremo"></a> <button class="menu-lista" id="menuLista" aria-label="Abrir menu"
+      aria-expanded="false">
+      <i class="fas fa-bars"></i> </button>
+
+    <nav class="navegacao" id="menuNavegacao">
+      <ul class="lista__itens">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Faça sua reserva</h1>
+    <h2>
+      Inclua seus dados e faremos o possível para escolher os melhores
+      assentos para você
+    </h2>
+
+    <form id="reservaForm" method="post">
+      <div class="linha">
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+      </div>
+      <div class="linha">
+        <input type="date" id="data" name="data" required />
+        <input type="time" id="hora" name="hora" required />
+      </div>
+      <div class="linha">
+
+        <select name="grupo" id="grupo" placeholder="Quantidade de Pessoas" aria-placeholder="Tamanho do grupo"
+          required>
+          <option value="1 pessoa">1 pessoa</option>
+          <option value="2 pessoas">2 pessoas</option>
+          <option value="3 pessoas">3 pessoas</option>
+          <option value="4 pessoas">4 pessoas</option>
+          <option value="5 pessoas">5 pessoas</option>
+          <option value="6 pessoas">6 pessoas</option>
+          <option value="7 pessoas ou mais">7 pessoas ou mais</option>
+        </select>
+
+
+        <select id="unidade" name="unidade">
+          <option value="Vila Maria">Vila Maria</option>
+          <option value="Vila Prudente">Vila Prudente</option>
+          <option value="Liberdade">Liberdade</option>
+          <option value="Barra Funda">Barra Funda</option>
+        </select>
+      </div>
+
+      <div class="informativo" id="informativo">
+        <strong>Resumo da Reserva:</strong>
+        <pre id="resumoTexto"></pre>
+      </div>
+
+      <div class="linha">
+        <button type="button" onclick="mostrarMenu()">
+          Pré-definir cardápio
+        </button>
+        <button type="submit">
+          Confirmar reserva
+        </button>
+      </div>
+
+      <div class="menu" id="menu">
+        <h3>Menu</h3>
+
+        <h4>Entradas</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Coração de Frango" data-preco="26.00"
+                name="item_menu[]" value="Coração de Frango" />
+              <input type="hidden" name="preco_item[]" value="26.00">
+              <span class="nome-produto">Coração de Frango</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Linguiça Artesanal na Brasa"
+                data-preco="29.00" name="item_menu[]" value="Linguiça Artesanal na Brasa" />
+              <input type="hidden" name="preco_item[]" value="29.00">
+              <span class="nome-produto">Linguiça Artesanal na Brasa</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Mini Ceviche Corte Supremo"
+                data-preco="27.00" name="item_menu[]" value="Mini Ceviche Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="27.00">
+              <span class="nome-produto">Mini Ceviche Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Pão de Alho Corte Supremo"
+                data-preco="21.00" name="item_menu[]" value="Pão de Alho Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="21.00">
+              <span class="nome-produto">Pão de Alho Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Provoleta Suprema" data-preco="28.00"
+                name="item_menu[]" value="Provoleta Suprema" />
+              <input type="hidden" name="preco_item[]" value="28.00">
+              <span class="nome-produto">Provoleta Suprema</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Rúcula com Pera Grelhada"
+                data-preco="25.00" name="item_menu[]" value="Rúcula com Pera Grelhada" />
+              <input type="hidden" name="preco_item[]" value="25.00">
+              <span class="nome-produto">Rúcula com Pera Grelhada</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Tartar de Carne Maturada"
+                data-preco="33.00" name="item_menu[]" value="Tartar de Carne Maturada" />
+              <input type="hidden" name="preco_item[]" value="33.00">
+              <span class="nome-produto">Tartar de Carne Maturada</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Tostada de Costela" data-preco="30.00"
+                name="item_menu[]" value="Tostada de Costela" />
+              <input type="hidden" name="preco_item[]" value="30.00">
+              <span class="nome-produto">Tostada de Costela</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Cortes Bovinos</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Ancho Grelhado" data-preco="59.00"
+                name="item_menu[]" value="Ancho Grelhado" />
+              <input type="hidden" name="preco_item[]" value="59.00">
+              <span class="nome-produto">Ancho Grelhado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Assado de Tira" data-preco="63.00"
+                name="item_menu[]" value="Assado de Tira" />
+              <input type="hidden" name="preco_item[]" value="63.00">
+              <span class="nome-produto">Assado de Tira</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Chorizo com Manteiga de Ervas"
+                data-preco="58.00" name="item_menu[]" value="Chorizo com Manteiga de Ervas" />
+              <input type="hidden" name="preco_item[]" value="58.00">
+              <span class="nome-produto">Chorizo com Manteiga de Ervas</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Costela Fogo Lento" data-preco="65.00"
+                name="item_menu[]" value="Costela Fogo Lento" />
+              <input type="hidden" name="preco_item[]" value="65.00">
+              <span class="nome-produto">Costela Fogo Lento</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Maminha ao Alho" data-preco="54.00"
+                name="item_menu[]" value="Maminha ao Alho" />
+              <input type="hidden" name="preco_item[]" value="54.00">
+              <span class="nome-produto">Maminha ao Alho</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Picanha na Brasa" data-preco="69.00"
+                name="item_menu[]" value="Picanha na Brasa" />
+              <input type="hidden" name="preco_item[]" value="69.00">
+              <span class="nome-produto">Picanha na Brasa</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Prime Rib Corte Supremo" data-preco="78.00"
+                name="item_menu[]" value="Prime Rib Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="78.00">
+              <span class="nome-produto">Prime Rib Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="T-Bone Corte Supremo" data-preco="82.00"
+                name="item_menu[]" value="T-Bone Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="82.00">
+              <span class="nome-produto">T-Bone Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Cortes Suínos</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Costelinha BBQ" data-preco="52.00"
+                name="item_menu[]" value="Costelinha BBQ" />
+              <input type="hidden" name="preco_item[]" value="52.00">
+              <span class="nome-produto">Costelinha BBQ</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Lombo Grelhado com Maçã" data-preco="49.00"
+                name="item_menu[]" value="Lombo Grelhado com Maçã" />
+              <input type="hidden" name="preco_item[]" value="49.00">
+              <span class="nome-produto">Lombo Grelhado com Maçã</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Pancetta Crocante" data-preco="57.00"
+                name="item_menu[]" value="Pancetta Crocante" /><input type="hidden" name="preco_item[]" value="57.00">
+              <span class="nome-produto">Pancetta Crocante</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Filé de Porco com Chimichurri"
+                data-preco="51.00" name="item_menu[]" value="Filé de Porco com Chimichurri" /><input type="hidden"
+                name="preco_item[]" value="51.00">
+              <span class="nome-produto">Filé de Porco com Chimichurri</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Cordeiro</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Carré de Cordeiro" data-preco="72.00"
+                name="item_menu[]" value="Carré de Cordeiro" />
+              <input type="hidden" name="preco_item[]" value="72.00">
+              <span class="nome-produto">Carré de Cordeiro</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Cordeiro ao Vinho" data-preco="68.00"
+                name="item_menu[]" value="Cordeiro ao Vinho" />
+              <input type="hidden" name="preco_item[]" value="68.00">
+              <span class="nome-produto">Cordeiro ao Vinho</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Kafta de Cordeiro" data-preco="59.00"
+                name="item_menu[]" value="Kafta de Cordeiro" />
+              <input type="hidden" name="preco_item[]" value="59.00">
+              <span class="nome-produto">Kafta de Cordeiro</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Paleta de Cordeiro Assada"
+                data-preco="75.00" name="item_menu[]" value="Paleta de Cordeiro Assada" />
+              <input type="hidden" name="preco_item[]" value="75.00">
+              <span class="nome-produto">Paleta de Cordeiro Assada</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Cortes de Aves</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Frango Caipira Assado" data-preco="47.00"
+                name="item_menu[]" value="Frango Caipira Assado" />
+              <input type="hidden" name="preco_item[]" value="47.00">
+              <span class="nome-produto">Frango Caipira Assado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Galeto na Brasa" data-preco="46.00"
+                name="item_menu[]" value="Galeto na Brasa" />
+              <input type="hidden" name="preco_item[]" value="46.00">
+              <span class="nome-produto">Galeto na Brasa</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Coxa de Pato Confit" data-preco="62.00"
+                name="item_menu[]" value="Coxa de Pato Confit" />
+              <input type="hidden" name="preco_item[]" value="62.00">
+              <span class="nome-produto">Coxa de Pato Confit</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Peito de Frango Grelhado"
+                data-preco="44.00" name="item_menu[]" value="Peito de Frango Grelhado" />
+              <input type="hidden" name="preco_item[]" value="44.00">
+              <span class="nome-produto">Peito de Frango Grelhado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Frutos do Mar</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Camarão na Moranga" data-preco="73.00"
+                name="item_menu[]" value="Camarão na Moranga" />
+              <input type="hidden" name="preco_item[]" value="73.00">
+              <span class="nome-produto">Camarão na Moranga</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Polvo Grelhado" data-preco="82.00"
+                name="item_menu[]" value="Polvo Grelhado" />
+              <input type="hidden" name="preco_item[]" value="82.00">
+              <span class="nome-produto">Polvo Grelhado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Salmão Grelhado" data-preco="69.00"
+                name="item_menu[]" value="Salmão Grelhado" />
+              <input type="hidden" name="preco_item[]" value="69.00">
+              <span class="nome-produto">Salmão Grelhado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Tilápia Crocante" data-preco="56.00"
+                name="item_menu[]" value="Tilápia Crocante" />
+              <input type="hidden" name="preco_item[]" value="56.00">
+              <span class="nome-produto">Tilápia Crocante</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Sobremesas</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Brownie da Brasa" data-preco="22.00"
+                name="item_menu[]" value="Brownie da Brasa" />
+              <input type="hidden" name="preco_item[]" value="22.00">
+              <span class="nome-produto">Brownie da Brasa</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Churros Recheados" data-preco="19.00"
+                name="item_menu[]" value="Churros Recheados" />
+              <input type="hidden" name="preco_item[]" value="19.00">
+              <span class="nome-produto">Churros Recheados</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Cocada de Forno" data-preco="20.00"
+                name="item_menu[]" value="Cocada de Forno" />
+              <input type="hidden" name="preco_item[]" value="20.00">
+              <span class="nome-produto">Cocada de Forno</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Pudim Corte Supremo" data-preco="18.00"
+                name="item_menu[]" value="Pudim Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="18.00">
+              <span class="nome-produto">Pudim Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Sorvete Artesanal" data-preco="16.00"
+                name="item_menu[]" value="Sorvete Artesanal" />
+              <input type="hidden" name="preco_item[]" value="16.00">
+              <span class="nome-produto">Sorvete Artesanal</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Torta de Limão Brûlée" data-preco="21.00"
+                name="item_menu[]" value="Torta de Limão Brûlée" />
+              <input type="hidden" name="preco_item[]" value="21.00">
+              <span class="nome-produto">Torta de Limão Brûlée</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Mousse de Chocolate com Laranja"
+                data-preco="23.00" name="item_menu[]" value="Mousse de Chocolate com Laranja" />
+              <input type="hidden" name="preco_item[]" value="23.00">
+              <span class="nome-produto">Mousse de Chocolate com Laranja</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Cheesecake de Frutas Vermelhas"
+                data-preco="24.00" name="item_menu[]" value="Cheesecake de Frutas Vermelhas" />
+              <input type="hidden" name="preco_item[]" value="24.00">
+              <span class="nome-produto">Cheesecake de Frutas Vermelhas</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Bebidas Não Alcoólicas</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Água com ou sem gás" data-preco="5.00"
+                name="item_menu[]" value="Água com ou sem gás" />
+              <input type="hidden" name="preco_item[]" value="5.00">
+              <span class="nome-produto">Água com ou sem gás</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Chá Gelado Artesanal" data-preco="9.00"
+                name="item_menu[]" value="Chá Gelado Artesanal" /><input type="hidden" name="preco_item[]" value="9.00">
+              <span class="nome-produto">Chá Gelado Artesanal</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Refrigerantes" data-preco="7.00"
+                name="item_menu[]" value="Refrigerantes" />
+              <input type="hidden" name="preco_item[]" value="7.00">
+              <span class="nome-produto">Refrigerantes</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Lemonade Corte Supremo" data-preco="12.00"
+                name="item_menu[]" value="Lemonade Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="12.00">
+              <span class="nome-produto">Lemonade Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Sucos Naturais" data-preco="10.00"
+                name="item_menu[]" value="Sucos Naturais" />
+              <input type="hidden" name="preco_item[]" value="10.00">
+              <span class="nome-produto">Sucos Naturais</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Kombucha Artesanal" data-preco="14.00"
+                name="item_menu[]" value="Kombucha Artesanal" />
+              <input type="hidden" name="preco_item[]" value="14.00">
+              <span class="nome-produto">Kombucha Artesanal</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Água Saborizada" data-preco="8.00"
+                name="item_menu[]" value="Água Saborizada" />
+              <input type="hidden" name="preco_item[]" value="8.00">
+              <span class="nome-produto">Água Saborizada</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Refrigerante Natural de Gengibre"
+                data-preco="11.00" name="item_menu[]" value="Refrigerante Natural de Gengibre" />
+              <input type="hidden" name="preco_item[]" value="11.00">
+              <span class="nome-produto">Refrigerante Natural de Gengibre</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+
+        <h4>Bebidas Alcoólicas</h4>
+
+        <div class="colunas">
+          <div class="coluna1">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Cachaças" data-preco="10.00"
+                name="item_menu[]" value="Cachaças" />
+              <input type="hidden" name="preco_item[]" value="10.00">
+              <span class="nome-produto">Cachaças</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Caipirinhas" data-preco="18.00"
+                name="item_menu[]" value="Caipirinhas" />
+              <input type="hidden" name="preco_item[]" value="18.00">
+              <span class="nome-produto">Caipirinhas</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Cervejas Artesanais e Premium"
+                data-preco="19.00" name="item_menu[]" value="Cervejas Artesanais e Premium" />
+              <input type="hidden" name="preco_item[]" value="19.00">
+              <span class="nome-produto">Cervejas Artesanais e Premium</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Coquetel Brasa Sour" data-preco="28.00"
+                name="item_menu[]" value="Coquetel Brasa Sour" />
+              <input type="hidden" name="preco_item[]" value="28.00">
+              <span class="nome-produto">Coquetel Brasa Sour</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+          <div class="coluna2">
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Gin Tônica Corte Supremo"
+                data-preco="29.00" name="item_menu[]" value="Gin Tônica Corte Supremo" />
+              <input type="hidden" name="preco_item[]" value="29.00">
+              <span class="nome-produto">Gin Tônica Corte Supremo</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Moscow Mule Defumado" data-preco="27.00"
+                name="item_menu[]" value="Moscow Mule Defumado" />
+              <input type="hidden" name="preco_item[]" value="27.00">
+              <span class="nome-produto">Moscow Mule Defumado</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Espumantes Brut ou Demi-Sec"
+                data-preco="80.00" name="item_menu[]" value="Espumantes Brut ou Demi-Sec" />
+              <input type="hidden" name="preco_item[]" value="80.00">
+              <span class="nome-produto">Espumantes Brut ou Demi-Sec</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" onchange="atualizarResumo()" data-nome="Vinhos (Garrafa)" data-preco="72.00"
+                name="item_menu[]" value="Vinhos (Garrafa)" />
+              <input type="hidden" name="preco_item[]" value="72.00">
+              <span class="nome-produto">Vinhos (Garrafa)</span>
+              <input type="number" value="1" min="1" class="quantidade" onchange="atualizarResumo()"
+                name="quantidade_menu[]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="rodape">
+    <div class="info">
+      <div class="enderecos">
+        <h2>Endereços</h2>
+        <div class="end">
+          <p>Rua Guaranésia, 425 - Vila Maria</p>
+          <p>São Paulo - SP, 02112-000</p>
+        </div>
+        <div class="end">
+          <p>Av. Professor Luiz Ignácio Anhaia Mello, 1363 - Vila Prudente</p>
+          <p>São Paulo - SP, 03155-000</p>
+        </div>
+        <div class="end">
+          <p>Rua Vergueiro, 235/249 - Liberdade</p>
+          <p>São Paulo - SP, 01525-000</p>
+        </div>
+        <div class="end">
+          <p>Av. Dr. Adolpho Pinto, 109 - Barra Funda</p>
+          <p> São Paulo - SP, 01156-050</p>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <h2>Horários</h2>
+      <div class="horarios">
+        <p>Funcionamento</p>
+        <p>Domingo a Quinta-feira</p>
+        <p>11:00 - 22:00</p>
+        <p>--------------</p>
+        <p>Sexta a Sábado</p>
+        <p>11:00 - 23:00</p>
+      </div>
+    </div>
+    <div class="info">
+      <h2>Contato</h2>
+      <div class="contatos">
+        <p>Tel:(11) 2222-2222</p>
+        <p>WhatsApp: (11) 99999-9999</p>
+      </div>
+
+    </div>
+  </footer>
+  <script src="../js/menu.js"></script>
+</body>
+
+</html>

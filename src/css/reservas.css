@@ -1,0 +1,282 @@
+body {
+    font-family: Arial, sans-serif; 
+    background-color: #D4C9BE; 
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+    text-align: center; 
+}
+
+main h1 {
+    color: #222; 
+    margin: 20px 0; 
+    font-size: 32px;
+}
+
+main h2 {
+    color: #222; 
+    margin: 15px 0 30px 0; 
+    font-size: 18px;
+    font-weight: normal;
+}
+
+h3 { 
+    font-size: 25px; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: #333;
+}
+
+h4 { 
+    margin: 20px 0 10px 0; 
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 20px;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+form {
+    max-width: 800px; 
+    margin: auto; 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.linha {
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 15px; 
+}
+
+input[type="email"],
+input[type="date"],
+input[type="time"],
+select,
+button {
+    padding: 12px; 
+    flex: 1; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+select {
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px auto;
+    padding-right: 30px; 
+}
+
+
+button {
+    background-color: #6e5c3f; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5a4a35; 
+}
+
+button[type="button"] { 
+    background-color: #555;
+}
+button[type="button"]:hover {
+    background-color: #444;
+}
+
+
+.informativo {
+    background: #f2f2f2; 
+    padding: 15px; 
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    min-height: 100px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
+}
+
+#resumoTexto {
+    white-space: pre-wrap; 
+    font-family: "Courier New", Courier, monospace; 
+    font-size: 14px; 
+    margin-top: 10px; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+.menu { 
+    display: none; 
+    margin-top: 20px; 
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.menu .colunas {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 30px; 
+    margin: 10px 0; 
+}
+
+.menu .coluna1,
+.menu .coluna2 { 
+    flex: 1; 
+    
+}
+
+.menu-item {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 12px; 
+}
+
+.menu-item input[type="checkbox"] {
+    flex: 0 0 18px;  
+    width: 18px; 
+    height: 18px; 
+    margin: 0; 
+    cursor: pointer;
+}
+
+.menu-item .nome-produto {
+    flex: 1; 
+    font-size: 15px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    text-align: left; 
+}
+
+.menu-item input[type="number"].quantidade {
+    flex: 0 0 55px; 
+    width: 55px; 
+    padding: 6px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    text-align: center; 
+    font-size: 14px;
+}
+
+
+
+@media (max-width: 1024px) {
+    form {
+        padding: 20px;
+    }
+
+    main h1 {
+        font-size: 28px;
+    }
+    main h2 {
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+    h3 { 
+        font-size: 22px;
+    }
+    h4 { 
+        font-size: 18px;
+    }
+
+    .linha {
+        flex-direction: column; 
+        gap: 12px; 
+        margin-bottom: 12px;
+    }
+
+    input[type="email"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    button {
+        width: 100%; 
+        padding: 10px;
+    }
+
+    .menu .colunas {
+        flex-direction: column; 
+        gap: 0; 
+    }
+
+
+
+}
+
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+    form {
+        padding: 15px;
+    }
+
+    main h1 {
+        font-size: 24px;
+    }
+    main h2 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    h3 { 
+        font-size: 20px;
+    }
+    h4 { 
+        font-size: 17px;
+    }
+
+    .linha {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    input[type="email"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    button {
+        font-size: 15px; 
+        padding: 10px;
+    }
+
+    .informativo {
+        padding: 10px;
+    }
+    #resumoTexto {
+        font-size: 13px;
+    }
+
+    .menu {
+        padding: 10px;
+    }
+
+    .menu-item .nome-produto {
+        font-size: 14px; 
+        white-space: normal; 
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .menu-item input[type="number"].quantidade {
+        width: 50px;
+        padding: 5px;
+    }
+}

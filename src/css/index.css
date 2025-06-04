@@ -1,0 +1,349 @@
+
+body{
+    background-color: #D4C9BE; 
+}
+
+.main__content {
+    font-size: 18px; 
+    margin: 20px 60px; 
+    padding: 10px; 
+   
+}
+
+.img__inicio{
+    width: 100%; 
+}
+
+.img__inicio img{
+    width: 100%; 
+    height: auto; 
+}
+
+.apresentacao{
+    display: flex; 
+    justify-content: space-between; 
+    margin: 20px 0px; 
+    overflow: hidden; 
+    flex-wrap: wrap; 
+}
+
+.apresentacao .img1{
+    width: 50%; 
+    padding: 10px 5px 10px 0px; 
+    box-sizing: border-box; 
+}
+
+.apresentacao .img1 img{
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.apresentacao .descricao{
+    width: 50%; 
+    padding: 10px 40px 30px 40px; 
+    box-sizing: border-box; 
+}
+
+.apresentacao .descricao h5{
+    font-size: 26px; 
+    margin: 11px 0 20px 5px; 
+}
+
+.apresentacao .descricao h2{
+    font-size: 36px; 
+    margin: 22px 0 25px 5px; 
+}
+
+.apresentacao .descricao p{
+    font-size: 18px; 
+    margin: 0px 0px 11px 5px;  
+}
+
+
+.fundo__1{
+    background-image: url('../assets/imagens/Restaurante img 2.webp'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    min-height: 70vh; 
+    height: auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 40px 20px; 
+    box-sizing: border-box;
+}
+
+.sobre {
+    background-color: rgba(255, 255, 240, 0.95); 
+    padding: 30px 40px;  
+    max-width: 600px; 
+    width: 100%; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    border-radius: 8px; 
+}
+
+.sobre h2 {
+    font-size: 32px;  
+    font-family: Arial, sans-serif; 
+    margin-bottom: 20px;  
+    color: #333;
+}
+
+.sobre p {
+    font-size: 16px;  
+    color: #333; 
+    margin-bottom: 25px;  
+    font-family: Arial, sans-serif; 
+    text-align: justify; 
+    line-height: 1.6; 
+}
+
+.sobre button {
+    background-color: #6e5c3f; 
+    color: white; 
+    padding: 12px 25px;  
+    border: none; 
+    cursor: pointer; 
+    font-size: 16px;  
+    font-family: Arial, sans-serif; 
+    border-radius: 5px; 
+    text-transform: uppercase; 
+    transition: background-color 0.3s ease; 
+}
+
+.sobre button:hover {
+    background-color: #5a4a35; 
+}
+
+.sobre button a{
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.menu{ 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 40px 0; 
+    flex-wrap: wrap; 
+}
+
+.menu .descricao{ 
+    width: 50%; 
+    padding: 10px 40px 30px 0px;  
+    box-sizing: border-box; 
+}
+
+.menu .descricao p{ 
+    font-size: 18px; 
+    margin: 0px 0px 11px 0px;  
+    line-height: 1.6;
+}
+
+.menu .img2{ 
+    width: 50%; 
+    padding: 10px 0px 10px 5px;  
+    box-sizing: border-box;
+}
+
+.menu .img2 img{ 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    border-radius: 8px; 
+}
+
+.reseva__map{ 
+    display: flex; 
+    justify-content: space-between; 
+    margin: 40px 0px; 
+    width: 100%; 
+    flex-wrap: wrap;
+}
+
+.reseva__map .reserva { 
+    background-image: url("../assets/imagens/Restaurante img 1.avif"); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 48%; 
+    min-height: 350px; 
+    display: flex; 
+    align-items: center;
+    flex-direction: column; 
+    padding: 20px;  
+    box-sizing: border-box;
+    color: #fd7; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+}
+
+.reseva__map .reserva h2{ 
+    font-size: 30px;  
+    margin: 20px 10px; 
+}
+
+.reseva__map .reserva h3{ 
+    font-size: 20px;  
+    margin: 10px 10px;  
+}
+
+.reseva__map .reserva a { 
+    text-decoration: none; 
+    font-size: 18px; 
+    margin-top: auto; 
+    padding: 10px 15px;
+    background-color: rgba(0,0,0,0.3); 
+    border-radius: 5px;
+    color: #fd7; 
+    cursor: pointer; 
+}
+.reseva__map .reserva a:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.reseva__map .map { 
+    width: 48%; 
+    min-height: 350px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    margin-bottom: 20px; 
+}
+
+.reseva__map .map iframe{ 
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+}
+
+
+@media (max-width: 768px) {
+    .main__content {
+        margin: 15px 15px; 
+        padding: 5px; 
+    }
+
+    .apresentacao,
+    .menu {
+        flex-direction: column;
+    }
+
+    .apresentacao .img1,
+    .apresentacao .descricao,
+    .menu .img2,
+    .menu .descricao {
+        width: 100%;
+        padding: 15px 0px;
+    }
+    .menu.ordem-inversa-mobile {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+
+    .apresentacao .descricao h5 {
+        font-size: 22px; 
+    }
+    .apresentacao .descricao h2 {
+        font-size: 30px; 
+    }
+    .apresentacao .descricao p,
+    .menu .descricao p {
+        font-size: 16px; 
+        margin: 0 0 10px 0;
+    }
+
+    .fundo__1 {
+        padding: 30px 15px; 
+        min-height: auto; 
+    }
+    .sobre {
+        padding: 20px; 
+        max-width: 100%; 
+    }
+    .sobre h2 {
+        font-size: 24px; 
+    }
+    .sobre p {
+        font-size: 15px; 
+        text-align: left; 
+    }
+    .sobre button {
+        padding: 10px 15px; 
+        font-size: 15px; 
+    }
+
+    .reseva__map .reserva,
+    .reseva__map .map {
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    .reseva__map .map {
+        height: 300px; 
+    }
+     .reseva__map .reserva h2 {
+        font-size: 26px; 
+    }
+    .reseva__map .reserva h3 {
+        font-size: 18px; 
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main__content {
+        margin: 20px 30px; 
+    }
+
+    .apresentacao .descricao,
+    .menu .descricao {
+        padding: 10px 30px; 
+    }
+    .apresentacao .descricao h5 {
+        font-size: 24px; 
+    }
+    .apresentacao .descricao h2 {
+        font-size: 32px; 
+    }
+
+    .fundo__1 {
+        padding: 40px 30px;
+        min-height: 60vh; 
+    }
+    .sobre {
+        padding: 30px; 
+        max-width: 90%;
+    }
+    .sobre h2 {
+        font-size: 28px; 
+    }
+    .sobre p {
+        font-size: 16px; 
+    }
+
+
+    .menu .descricao,
+    .menu .img2 {
+        width: 100%; 
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .menu {
+        flex-direction: column; 
+    }
+ 
+    .reseva__map .reserva,
+    .reseva__map .map {
+        width: 100%; 
+        margin-bottom: 20px;
+    }
+     .reseva__map .map {
+        height: 350px;
+    }
+}

@@ -1,0 +1,166 @@
+
+.cabecalho {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: #3c3c3c; 
+    color: #fd7; 
+    padding: 0 20px; 
+    position: relative; 
+}
+
+.cabecalho .logo img {
+    padding: 20px 0; 
+    height: 150px; 
+    width: auto;
+}
+
+
+.menu-lista {
+    display: none; 
+    background: none;
+    border: none;
+    color: #fd7; 
+    font-size: 24px; 
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navegacao {
+    display: flex; 
+}
+
+.lista__itens { 
+    display: flex;
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.lista__itens li a {
+    margin: 0 15px; 
+    text-decoration: none;
+    font-size: 18px;
+    color: inherit;
+    padding: 20px 0; 
+    display: block;
+}
+
+
+.rodape {
+    background-color: #3c3c3c; 
+    color: #fd7; 
+    display: flex;
+    justify-content: space-around;
+    padding: 30px; 
+    flex-wrap: wrap; 
+}
+
+.info {
+    display: flex; 
+    flex-direction: column; 
+    margin: 15px;
+}
+
+.info h2 {
+    margin: 5px 0; 
+    font-size: 32px; 
+}
+
+.info .enderecos .end {
+    margin: 20px 0px; 
+    font-size: 20px; 
+}
+
+.horarios p {
+    margin: 10px 0px 5px 0px; 
+    font-size: 20px; 
+}
+
+.contatos p {
+    margin: 10px 0px 5px 0px; 
+    font-size: 20px; 
+}
+
+
+
+@media (max-width: 1024px) {
+    .cabecalho .logo img {
+        height: 120px; 
+    }
+
+    .menu-lista {
+        display: block; 
+    }
+
+    .navegacao {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #3c3c3c; 
+        box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        z-index: 1000; 
+    }
+
+    .navegacao.menu-aberto {
+        display: block; 
+    }
+
+    .lista__itens {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .lista__itens li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(253, 215, 119, 0.2); 
+    }
+    .lista__itens li:last-child {
+        border-bottom: none;
+    }
+
+    .lista__itens li a {
+        margin: 0;
+        padding: 15px; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .lista__itens li a:hover {
+        background-color: rgba(253, 215, 119, 0.1); 
+    }
+
+    .rodape {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .info {
+        width: 90%; 
+        margin-bottom: 20px; 
+    }
+
+    .info h2 {
+        font-size: 28px; 
+    }
+
+    .info .enderecos .end,
+    .horarios p,
+    .contatos p {
+        font-size: 18px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cabecalho .logo img {
+        height: 80px;
+    }
+    .lista__itens li a {
+        font-size: 16px; 
+    }
+}

@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    background-color: #D4C9BE; 
+    font-family: 'Georgia', serif; 
+}
+
+main {
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 60px 40px; 
+    background-image: url('../src/assets/imagens/pngtree-retro-letter-paper-image_780920.jpg'); 
+    background-color: #fff; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    color: #3b2f24; 
+    text-shadow: 1px 1px 0 #fff; 
+    line-height: 1.8; 
+    border-radius: 8px; 
+}
+
+main p {
+    margin: 12px 0px; 
+    font-size: 1rem; 
+}
+
+h1 {
+    text-align: center; 
+    font-size: 36px; 
+    font-weight: bold; 
+    margin-bottom: 30px; 
+    color: #5c4428; 
+    text-shadow: 1px 1px 0 #fff; 
+}
+
+main h2,main 
+h3 {
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-top: 25px; 
+    margin-bottom: 10px; 
+    color: #5c4428; 
+}
+
+blockquote {
+    display: block; 
+    margin-block-start: 1em; 
+    margin-block-end: 1em; 
+    margin-inline-start: 40px; 
+    margin-inline-end: 40px; 
+    unicode-bidi: isolate; 
+    padding: 10px 20px; 
+    border-left: 4px solid #c2a77d; 
+    background-color: rgba(255, 255, 255, 0.5); 
+    font-style: italic; 
+    color: #3b2f24; 
+}
+
+blockquote br {
+    display: none; 
+}
+
+@media (max-width: 1024px) {
+    main {
+        max-width: 90%; 
+        padding: 40px 30px; 
+        margin: 30px auto; 
+    }
+
+    h1 {
+        font-size: 32px; 
+    }
+
+    h2,
+    h3 {
+        font-size: 1.3rem; 
+    }
+
+    blockquote {
+        margin-inline-start: 20px; 
+        margin-inline-end: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        max-width: 100%; 
+        width: auto;
+        padding: 30px 15px; 
+        margin: 20px 10px; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        text-shadow: none; 
+        line-height: 1.6; 
+    }
+
+    main p {
+        font-size: 0.95rem; 
+        margin: 10px 0px;
+    }
+
+    h1 {
+        font-size: 26px; 
+        margin-bottom: 20px;
+    }
+
+    h2,
+    h3 {
+        font-size: 1.2rem; 
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+
+    blockquote {
+        margin-inline-start: 10px; 
+        margin-inline-end: 10px; 
+        padding: 10px 15px;
+        font-size: 0.9rem; 
+    }
+}
